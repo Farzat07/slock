@@ -445,6 +445,9 @@ main(int argc, char **argv) {
 	if (!(dpy = XOpenDisplay(NULL)))
 		die("slock: cannot open display\n");
 
+	/* switch the keyboard layout to US */
+	system("xkb-switch -s us");
+
 	/* drop privileges */
 	if (setgroups(0, NULL) < 0)
 		die("slock: setgroups: %s\n", strerror(errno));
